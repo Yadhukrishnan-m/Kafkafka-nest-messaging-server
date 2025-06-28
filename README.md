@@ -128,6 +128,19 @@ npm run start:dev
 
 ---
 
+## 🐳 Docker Images
+
+Both microservices are containerized and available on Docker Hub:
+
+- Client A Service: [docker.io/yadhu0755/client-a-service](https://hub.docker.com/r/yadhu0755/client-a-service)
+- Client B Service: [docker.io/yadhu0755/client-b-service](https://hub.docker.com/r/yadhu0755/client-b-service)
+
+To pull the images:
+```bash
+docker pull yadhu0755/client-a-service
+docker pull yadhu0755/client-b-service
+
+
 ## 📹 Video Demo
 
 📺 [Watch the Recorded Demo]()
