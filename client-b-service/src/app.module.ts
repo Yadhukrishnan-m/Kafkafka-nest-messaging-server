@@ -10,7 +10,8 @@ import { AppGateway } from './app.gateway';
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb+srv://yadhumon2003:%40Yadhu0755@cluster0.eb9ah.mongodb.net/kafka_message',
+      process.env.MONGOURI ||
+        'mongodb+srv://yadhumon2003:%40Yadhu0755@cluster0.eb9ah.mongodb.net/kafka_message',
     ),
 
     // Register the Message schema in Mongoose
