@@ -60,7 +60,7 @@ flowchart TD
 ## 🔁 Retry & DLQ Strategy
 
 - **Retry:** Messages are retried using built-in Kafka consumer retry strategy
-- **Dead-Letter Queue:** Messages that fail after maximum retries are sent to a separate `dead-letter-topic` for inspection
+- **Dead-Letter Queue:** Messages that fail after maximum retries are sent to a separate `dead-letter-topic` for inspection and saved the message with error in a db collection
 
 ---
 
