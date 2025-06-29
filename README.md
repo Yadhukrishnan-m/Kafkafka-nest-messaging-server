@@ -127,50 +127,62 @@ npm run start:dev
 - Configure MongoDB URI in (MONGOURI) `.env` files for each service
 
 ---
-
-## 🐳 Docker Images
+🐳 Docker Images
 
 Both microservices are containerized and available on Docker Hub:
 
-- Client A Service: [docker.io/yadhu0755/client-a-service](https://hub.docker.com/r/yadhu0755/client-a-service)
-- Client B Service: [docker.io/yadhu0755/client-b-service](https://hub.docker.com/r/yadhu0755/client-b-service)
+Client A Service: yadhu0755/client-a-service
 
-To pull the images:
-```bash
+Client B Service: yadhu0755/client-b-service
+
+Pulling Images
+
 docker pull yadhu0755/client-a-service
 docker pull yadhu0755/client-b-service
 
+📦 Docker Compose
 
-## 📹 Video Demo
+A docker-compose.yml file is provided to run both services along with Kafka and Zookeeper:
 
-📺 [Watch the Recorded Demo](https://youtu.be/L39t1qRXuZY)
+git clone https://github.com/Yadhukrishnan-m/kafka-nestjs-messaging-client.git
+cd kafka-nestjs-messaging/
+docker-compose up -d
 
----
+This will start the following containers:
 
-## 📂 Project Structure
+Zookeeper
 
-```
+Kafka Broker
+
+Client A Service
+
+Client B Service
+
+📹 Video Demo
+
+Watch the recorded demonstration on YouTube:
+
+📺 Watch the Recorded Demo
+
+📂 Project Structure
+
 kafka-nestjs-messaging/
-├── client-a-service/
+├── client-a-service/      # NestJS service for Client A
 │   ├── src/
 │   └── ...
-├── client-b-service/
+├── client-b-service/      # NestJS service for Client B
 │   ├── src/
 │   └── ...
-├── docker-compose.yml
-└── README.md
-```
+├── docker-compose.yml     # Compose file for local development
+└── README.md              # Project documentation
 
----
+🙋‍♂️ Author
 
+Name: Yadhukrishnan M
 
-## 🙋‍♂️ Author
+Email: yadhumon2003@gmail.com
 
-- **Name:** [Yadhukrishnan M]
-- **Email:** [yadhumon2003@gmail.com]
+✅ Status
 
----
+✅ Task Completed – All requirements have been implemented as per HR specifications.
 
-## ✅ Status
-
-✅ Task Completed – As per HR requirements.
