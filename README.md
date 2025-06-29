@@ -60,7 +60,7 @@ flowchart TD
 ## 🔁 Retry & DLQ Strategy
 
 - **Retry:** Messages are retried using built-in Kafka consumer retry strategy
-- **Dead-Letter Queue:** Messages that fail after maximum retries are sent to a separate `dead-letter-topic` for inspection and saved the message with error in a db collection
+- **Dead-Letter Queue:** Messages that fail after maximum retries are sent to a separate `dead-letter-topic` and saved with the error in a DB collection for inspection
 
 ---
 
@@ -97,6 +97,13 @@ Returns all messages received and stored by Client B.
 
 ---
 
+## 🧾 MongoDB
+
+- Used to store all messages received by **Client B**
+- Configure MongoDB URI in `.env` file as `MONGOURI`
+
+---
+
 ## 🐳 Docker Setup
 
 ### 1. Start Kafka, Zookeeper, and MongoDB
@@ -105,7 +112,7 @@ Returns all messages received and stored by Client B.
 docker-compose up -d
 ```
 
-### 2. Run Services
+### 2. Run Services Locally
 
 ```bash
 cd client-a-service
@@ -121,51 +128,52 @@ npm run start:dev
 
 ---
 
-## 🧾 MongoDB
-
-- Used to store all messages received by **Client B**
-- Configure MongoDB URI in (MONGOURI) `.env` files for each service
-
----
-🐳 Docker Images
+## 🐳 Docker Images
 
 Both microservices are containerized and available on Docker Hub:
 
-Client A Service: yadhu0755/client-a-service
+- **Client A Service:** [`yadhu0755/client-a-service`](https://hub.docker.com/r/yadhu0755/client-a-service)
+- **Client B Service:** [`yadhu0755/client-b-service`](https://hub.docker.com/r/yadhu0755/client-b-service)
 
-Client B Service: yadhu0755/client-b-service
+### Pulling Images
 
-Pulling Images
-
+```bash
 docker pull yadhu0755/client-a-service
 docker pull yadhu0755/client-b-service
+```
 
-📦 Docker Compose
+---
 
-A docker-compose.yml file is provided to run both services along with Kafka and Zookeeper:
+## 📦 Docker Compose
 
+A `docker-compose.yml` file is provided to run both services along with Kafka and Zookeeper:
+
+```bash
 git clone https://github.com/Yadhukrishnan-m/kafka-nestjs-messaging-client.git
 cd kafka-nestjs-messaging/
 docker-compose up -d
+```
 
 This will start the following containers:
 
-Zookeeper
+- Zookeeper
+- Kafka Broker
+- Client A Service
+- Client B Service
 
-Kafka Broker
+---
 
-Client A Service
-
-Client B Service
-
-📹 Video Demo
+## 📹 Video Demo
 
 Watch the recorded demonstration on YouTube:
 
-📺 Watch the Recorded Demo
+> 📺 [Watch the Recorded Demo](https://youtu.be/L39t1qRXuZY)
 
-📂 Project Structure
+---
 
+## 📂 Project Structure
+
+```text
 kafka-nestjs-messaging/
 ├── client-a-service/      # NestJS service for Client A
 │   ├── src/
@@ -175,14 +183,17 @@ kafka-nestjs-messaging/
 │   └── ...
 ├── docker-compose.yml     # Compose file for local development
 └── README.md              # Project documentation
+```
 
-🙋‍♂️ Author
+---
 
-Name: Yadhukrishnan M
+## 🙋‍♂️ Author
 
-Email: yadhumon2003@gmail.com
+- **Name:** Yadhukrishnan M
+- **Email:** [yadhumon2003@gmail.com](mailto:yadhumon2003@gmail.com)
 
-✅ Status
+---
 
-✅ Task Completed – All requirements have been implemented as per HR specifications.
+## ✅ Status
 
+✅ **Task Completed** – All requirements have been implemented as per HR specifications.
